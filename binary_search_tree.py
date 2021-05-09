@@ -1,5 +1,5 @@
 class BST:
-    def __init__(self, value):
+    def __init__(self, value=None):
         self.data = value
         self.left = None
         self.right = None
@@ -19,6 +19,9 @@ class BST:
         return node.left
 
     def insert(self, value):
+        if self.data==None:
+            self.data=value
+            return
         if value > self.data:
             if self.right is None:
                 self.insert_right(value)
@@ -44,6 +47,15 @@ class BST:
         if self.right is not None:
             self.right.inorder()
 
+    def inorder_traverse(self):
+        res=[]
+        if self.left is not None :
+            res=self.left.inorder_traverse()
+        res.append(self.data)
+        if self.right is not None:
+            res+=self.right.inorder_traverse()
+        return res
+
     def find(self, value):
         if value == self.data: return True
         # if self.right is None and self.left is None:return False
@@ -60,7 +72,7 @@ class BST:
         if self.left is None: return self.right.get_height()+1
         return max(self.left.get_height()+1,self.right.get_height()+1)
 
-bst = BST(1)
+bst = BST(9)
 bst.insert(3)
 bst.insert(2)
 bst.insert(5)
@@ -78,3 +90,5 @@ bst.insert(14)
 # bst.inorder()
 print(bst.find(9))
 print(bst.get_height())
+print(bst.inorder_traverse())
+
