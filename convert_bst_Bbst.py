@@ -1,0 +1,33 @@
+from binary_search_tree import BST
+bst = BST(9)
+bst.insert(3)
+bst.insert(2)
+bst.insert(5)
+bst.insert(4)
+bst.insert(6)
+bst.insert(7)
+bst.insert(9)
+bst.insert(8)
+bst.insert(11)
+bst.insert(13)
+bst.insert(12)
+bst.insert(10)
+bst.insert(15)
+bst.insert(14)
+arr=bst.inorder_traverse()
+Bbst=BST()
+print(arr)
+# print(Bbst.get_height())
+def create_Bbst(a):
+    n=len(a)
+    if len(a)!=0:
+        if n==1:
+            Bbst.insert(a[0])
+        else:
+            mid=int(n/2)
+            Bbst.insert(a[mid])
+            create_Bbst(a[:mid])
+            create_Bbst(a[mid+1:])
+create_Bbst(arr)
+print(Bbst.inorder_traverse())
+print(Bbst.get_height())
