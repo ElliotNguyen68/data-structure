@@ -1,5 +1,4 @@
 class node:
-
     def __init__(self, data=None):
         self.next = None
         self.data = data
@@ -93,3 +92,4 @@ print(a.at(4))
 print()
 a.remove(9)
 print(a)
+
